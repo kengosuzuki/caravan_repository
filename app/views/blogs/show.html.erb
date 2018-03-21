@@ -38,6 +38,7 @@
       <section class="blog-box">
             <h3 class="blog-box-headline">
              <!-- タイトル -->
+             <h2></h2>
              <%= @blog.title %>
             </h3>
 
@@ -52,13 +53,20 @@
           </p>
             </div>
 
-              <div class="single_image"></div>
+              <div class="single_image">
+                <%= attachment_image_tag @blog, :blog_image %>
+              </div>
               <p class="single_text">
             <!-- 本文 -->
             <%= @blog.body %>
               </p>
+              <%= link_to "編集", edit_blog_path(@blog) %>
+              <%= link_to "削除", blog_path(@blog), method: :delete %>
+              <h2></h2>
+              <%= attachment_image_tag @blog, :blog_image, :blog_fill, 300, 300, format: 'jpeg'%>
+              <%= link_to "編集", edit_blog_path(@blog) %>
  <!--
-  <main class="clearfix">
+  <main class="clearfix">:v
     <section class="single-blog">
       <h2 class="blog-headline">Blog</h2>
       <section class="blog-box">

@@ -21,7 +21,7 @@ class BlogsController < ApplicationController
 		blog.save
 
 		redirect_to '/blogs'
-		binding.pry
+		# binding.pry
 	end
 
 	def edit
@@ -35,11 +35,19 @@ class BlogsController < ApplicationController
 
 	end
 
+	def destroy
+		blog = Blog.find(params[:id])
+		blog.destroy
+		redirect_to blog_params
+	end
+
+
+
 
 	private
 
 	def blog_params
-		params.require(:blog).permit(:title,:body,:category)
+		params.require(:blog).permit(:title,:body,:category, :image)
 	end
 
 

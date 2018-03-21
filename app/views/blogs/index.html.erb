@@ -39,7 +39,7 @@
         <!-- 第三回でここから書き換える -->
         <% @blogs.each do |blog|%>
         <div class="blog-item clearfix">
-          <%= image_tag "img/forest.jpg",class: "blog-image" %>
+          <%= attachment_image_tag @blog, :blog_image,class: "blog-image" %>
           <!-- <img class="blog-image" src="img/forest.jpg"> -->
           <section class="blog-text">
             <h3 class="blog-text-headline">
@@ -51,7 +51,6 @@
             <span class="category">
               <%= blog.category %>
             </span>
-         
           </section>
         </div>
         <% end %>
